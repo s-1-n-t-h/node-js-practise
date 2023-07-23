@@ -4,6 +4,8 @@ const Joi = require("joi");
 const config = require("config");
 const startupDebugger = require("debug")("app:startup");
 app.use(express.json());
+app.set("view engine", "pug");
+app.set("views", "./views");
 
 console.log("App Name: " + config.get("name"));
 console.log("Server Name: " + config.get("mail.host"));
@@ -14,7 +16,7 @@ const courses = [
 	{ id: 3, name: "ML Math Specalisation" },
 ];
 app.get("/", (req, res) => {
-	res.send("Welcome!!!!");
+	res.render("index", { title: "My Express App", message: "Welcomes You!!!" });
 });
 app.get("/api/courses", (req, res) => {
 	res.send(courses);
