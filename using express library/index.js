@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
 const Joi = require("joi");
-
+const config = require("config");
+const startupDebugger = require("debug")("app:startup");
 app.use(express.json());
 
+console.log("App Name: " + config.get("name"));
+console.log("Server Name: " + config.get("mail.host"));
+console.log("App password: " + config.get("mail.password"));
 const courses = [
 	{ id: 1, name: "Practical Data Science" },
 	{ id: 2, name: "AI for Everybody" },
@@ -55,4 +59,4 @@ function validateCourse(course) {
 	return Joi.validate(course, schema);
 }
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () => startupDebugger(`Listening on port: ${port}`));
