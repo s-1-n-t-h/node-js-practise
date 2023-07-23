@@ -17,8 +17,7 @@
     "mongoose": "^7.2.1",
     "nodemon": "^3.0.1",
     "pug": "^3.0.2",
-    "underscore": "^1.13.6",
-    "views": "^1.0.2"
+    "underscore": "^1.13.6"
   },
   "devDependencies": {
     "jshint": "^2.13.6"
