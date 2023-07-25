@@ -10,7 +10,7 @@ const courses = [
 router.get("/", (req, res) => {
 	res.send(courses);
 });
-router.get("//:id", (req, res) => {
+router.get("/:id", (req, res) => {
 	const course = courses.find((c) => c.id === parseInt(req.params.id));
 	if (!course) {
 		return res.status(404).send("The course with the given ID is not found");
