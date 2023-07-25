@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const Joi = require("joi");
 const config = require("config");
 const startupDebugger = require("debug")("app:startup");
 const courses = require("./routes/courses");
