@@ -1,6 +1,5 @@
 const express = require("express");
 app = express();
-const Joi = require("joi");
 const geners = require("./routes/geners");
 const home = require("./routes/home");
 
