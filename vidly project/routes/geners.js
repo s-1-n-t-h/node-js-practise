@@ -44,7 +44,7 @@ router.put("/:id", async (req, res) => {
 	if (error) {
 		return res.status(400).send(error.deatils[0].message);
 	}
-	const genre = await Genre.findByIDAndUpate(
+	const genre = await Genre.findByIdAndUpdate(
 		req.params.id,
 		{ name: req.body.name },
 		{ new: true },
@@ -55,7 +55,7 @@ router.put("/:id", async (req, res) => {
 	res.send(genre);
 });
 router.delete("/:id", async (req, res) => {
-	const genre = Genre.findByIdAndDelete(req.params.id);
+	const genre = await Genre.findByIdAndDelete(req.params.id);
 	if (!genre) {
 		return res.status(404).send("The resource with the given ID is not found");
 	}
